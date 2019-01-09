@@ -36,15 +36,14 @@ function convertJsonToObject(langSheet) {
         }
         count++
     }
-
-    listSheetObj.forEach(word => {
-        createStringFile(word)
+    langCol.forEach((lang, index) => {
+        createStringFile(listSheetObj, index + 2, config.file_name + '-' + lang)
     });
 }
 
 // pull name of language from google sheet at row 1 
 function createLanguage(cell, callback) {
-    if (cell.row == 1)
+    if (cell.row == 1 && cell.inputValue != 'id')
         callback(cell.inputValue)
 }
 
@@ -59,19 +58,22 @@ function createObject(value, callback) {
     )
 }
 
-function createStringFile(path, data) {
-    var count = 1
+// make android resource string file
+function createStringFile(data, lang, path) {
     var langData = "<resources>\n"
-    for (i = 0; i < objLangArray.length; i++) {
-        console.log("Creating de sheet >>> " + langData)
-        langData = langData + "<string name=\"" + data.id + "\">" + data.value + "</string>\n"
-        count++
+    for (i = 1; i < data.length; i++) {
+        if (data[i].col == 1)
+            langData = langData + "<string name=\"" + data[i].value + "\">"
+        if (data[i].col == lang)
+            if (data[i].row > 1)
+                langData = langData + data[i].value + "</string>\n"
+
     }
     langData += "</resources>"
 
-    // fs.writeFileSync(path, langData, function (err) {
-    //     if (err) throw err;
-    //     console.log('Saved!');
-    // });
-    console.log("=============================================")
+    fs.writeFileSync(path, langData, function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+    });
+    console.log(langData)
 }

@@ -1,0 +1,28 @@
+<resources>
+<string name="app_name">ICA</string>
+<string name="txt_welcome_title">WELCOME</string>
+<string name="txt_Zugangsdaten">Forget your access data??</string>
+<string name="agb">AGB</string>
+<string name="txt_btn_login">log in</string>
+<string name="txt_require_email">Required E-Mail-Address</string>
+<string name="txt_wrong_email_format">Wrong E-Mail-Address format</string>
+<string name="txt_require_password">Required Password</string>
+<string name="txt_title_login">Log in</string>
+<string name="txt_register_button">Register</string>
+<string name="txt_forgot_button">Forgot Password</string>
+<string name="txt_checkbox_agree">I agree to the Terms and Conditions</string>
+<string name="txt_btn_next">Next</string>
+<string name="txt_institute">INSTITUTE OF CULINARY ART</string>
+<string name="txt_welcome_to_ica">WELCOME TO ICA</string>
+<string name="txt_title_result_register">Thank you</string>
+<string name="txt_event_menu">Events</string>
+<string name="txt_search_menu">Search</string>
+<string name="txt_agenda">Agenda</string>
+<string name="txt_info">Description</string>
+<string name="txt_speakers">Speakers</string>
+<string name="txt_chart">Chart of Presentations</string>
+<string name="txt_gallery">Picture galleries</string>
+<string name="txt_video">Video</string>
+<string name="txt_participant_list">Participant List</string>
+<string name="txt_join">Join</string>
+</resources>
