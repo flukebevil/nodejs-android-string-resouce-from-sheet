@@ -71,6 +71,7 @@ function createStringFile(data, lang, path) {
     }
     langData += "</resources>"
 
+    // create and write to file
     fs.writeFileSync(path, langData, function (err) {
         if (err) throw err;
         console.log('Saved!');
