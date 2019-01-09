@@ -1,14 +1,10 @@
-// var langSheet = require('./shit.json');
 var fs = require('fs');
 var config = require('./config/config.json')
 var request = require("request")
 
-var i
 var row = 00
 var langCol = []
 var listSheetObj = []
-var stringRes = {}
-var objLangArray = []
 
 request({
     url: config.link_json,
@@ -20,8 +16,7 @@ request({
 })
 
 function convertJsonToObject(langSheet) {
-    var count = 1
-    for (i = 0; i < langSheet.feed.entry.length; i++) {
+    for (var i = 0; i < langSheet.feed.entry.length; i++) {
         var rowJSON = langSheet.feed.entry[i].gs$cell.row
         if (row == rowJSON) { }
         else if (langSheet.feed.entry[i].gs$cell.col < 4) {
@@ -34,7 +29,6 @@ function convertJsonToObject(langSheet) {
                 listSheetObj.push(cellObj)
             })
         }
-        count++
     }
     langCol.forEach((lang, index) => {
         createStringFile(listSheetObj, index + 2, config.file_name + '-' + lang)
